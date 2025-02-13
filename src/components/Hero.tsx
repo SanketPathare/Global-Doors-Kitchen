@@ -23,10 +23,7 @@ const Hero: React.FC<HeroProps> = ({ videoSrc = "/videos/hero.mp4" }) => {
           <source src={videoSrc} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div 
-          className="absolute inset-0 bg-black/50" 
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
       </div>
 
       {/* Content Overlay */}

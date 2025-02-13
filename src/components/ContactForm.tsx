@@ -70,8 +70,7 @@ const ContactForm: React.FC = () => {
               <div>
                 <h3 className="font-semibold text-base md:text-lg">Address</h3>
                 <p className="text-gray-600 text-sm md:text-base">
-                  ijau Office, Thehur Phat, Kunjirwadi, Pune,
-                  Maharashtra 411028
+                  ijau Office, Thehur Phat, Kunjirwadi, Pune, Maharashtra 411028
                 </p>
               </div>
             </div>
@@ -79,7 +78,9 @@ const ContactForm: React.FC = () => {
               <Phone className="text-amber-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-base md:text-lg">Phone</h3>
-                <p className="text-gray-600 text-sm md:text-base">91+ 77972 12121</p>
+                <p className="text-gray-600 text-sm md:text-base">
+                  91+ 77972 12121
+                </p>
               </div>
             </div>
             <div className="flex items-center space-x-4">

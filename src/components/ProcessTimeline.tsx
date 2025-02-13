@@ -116,7 +116,7 @@ const ProcessTimeline = () => {
                     <p className="text-sm text-gray-600 mb-1">
                       {step.description}
                     </p>
-                  
+
                     <p className="text-xs text-amber-600 font-medium">
                       {step.duration}
                     </p>

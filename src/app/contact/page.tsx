@@ -53,7 +53,7 @@ const Page = () => {
                       <div>
                         <h3 className="font-semibold mb-1">Address</h3>
                         <p className="text-gray-600">
-                        ijau Office, Thehur Phat, Kunjirwadi,
+                          ijau Office, Thehur Phat, Kunjirwadi,
                         </p>
                         <p className="text-gray-600">
                           Pune, Maharashtra 411028

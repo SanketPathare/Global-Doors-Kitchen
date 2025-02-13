@@ -68,7 +68,7 @@ const DoorServices: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-16">
+    <div className="container mx-auto max-w-7xl px-4 py-8 md:py-16">
       <div className="text-center mb-8 md:mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
           Door Services

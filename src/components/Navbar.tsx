@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-amber-100/80 lg:border-b border-neutral-300"
+      className="sticky top-0 z-50 bg-amber-100/80 border-b border-amber-500"
       aria-label="Main Navigation"
     >
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-14">
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                   key={item.label}
                   href={item.href}
                   onClick={closeMenu}
-                  className="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-100"
+                  className="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-500"
                   role="menuitem"
                 >
                   {item.label}

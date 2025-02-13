@@ -81,7 +81,7 @@ const Page: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto px-4 py-8 max-w-8xl">
+      <main className="container mx-auto max-w-7xl px-4 py-8 max-w-8xl">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-center mb-6">
             Our Recent Projects
@@ -133,11 +133,11 @@ const Page: React.FC = () => {
               className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
             >
               {product.image && (
-                <div className="aspect-video w-full  ">
+                <div className="aspect-video w-full   ">
                   <img
                     src={urlFor(product.image).url()}
                     alt={product.title}
-                    className="w-full  object-cover h-[500px] "
+                    className=" w-full h-[600px]  object-cover"
                   />
                 </div>
               )}
