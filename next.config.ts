@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
-
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        hostname: "placehold.co"
+      },
+     
+    ],
+  },
 };
 
 export default nextConfig;
