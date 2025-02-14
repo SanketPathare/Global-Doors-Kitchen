@@ -35,6 +35,7 @@ const Page: React.FC = () => {
     { id: "all", name: "All Products" },
     { id: "kitchen", name: "Kitchen" },
     { id: "doors", name: "Doors" },
+    {id: "acrylic", name:"Acrylic"}
   ];
 
   useEffect(() => {

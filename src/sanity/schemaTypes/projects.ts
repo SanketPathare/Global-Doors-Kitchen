@@ -17,6 +17,7 @@ export const projects = {
         list: [
           { title: "Kitchen", value: "kitchen" },
           { title: "Doors", value: "doors" },
+          { title: "Acrylic", value: "acrylic" },
         ],
       },
       validation: (Rule: any) => Rule.required(),
