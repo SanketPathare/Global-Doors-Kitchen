@@ -47,7 +47,7 @@ const AboutPage = () => {
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg">
+                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                     14+
                   </h3>
@@ -55,7 +55,7 @@ const AboutPage = () => {
                     Years of Experience
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg">
+                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                     10K+
                   </h3>
@@ -63,7 +63,7 @@ const AboutPage = () => {
                     Projects Completed
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg">
+                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                     50+
                   </h3>
@@ -71,7 +71,7 @@ const AboutPage = () => {
                     Expert Team Members
                   </p>
                 </div>
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg">
+                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
                     98%
                   </h3>

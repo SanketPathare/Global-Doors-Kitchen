@@ -10,8 +10,7 @@ const FAQSection = () => {
       questions: [
         {
           question: "What areas do you service?",
-          answer:
-            "We service the entire Greater Toronto Area (GTA) including Toronto, Mississauga, Brampton, Vaughan, Richmond Hill, and surrounding areas. Contact us for specific location inquiries.",
+          answer: "We service the entire Pune.",
         },
         {
           question: "Do you offer free consultations?",
