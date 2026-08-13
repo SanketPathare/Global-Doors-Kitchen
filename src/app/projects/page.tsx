@@ -7,7 +7,6 @@ import { urlFor } from "@/sanity/lib/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Type definitions
 interface Category {
   id: string;
   name: string;
@@ -35,7 +34,7 @@ const Page: React.FC = () => {
     { id: "all", name: "All Products" },
     { id: "kitchen", name: "Kitchen" },
     { id: "doors", name: "Doors" },
-    {id: "acrylic", name:"Acrylic"}
+    { id: "acrylic", name: "Acrylic" },
   ];
 
   useEffect(() => {
@@ -73,8 +72,8 @@ const Page: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+      <div className="flex min-h-screen items-center justify-center bg-cream">
+        <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-brass" />
       </div>
     );
   }
@@ -82,76 +81,91 @@ const Page: React.FC = () => {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto max-w-7xl px-4 py-8 max-w-8xl">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-center mb-6">
-            Our Recent Projects
-          </h1>
-
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-6">
-            {/* Search Input */}
-            <div className="relative w-full md:w-96">
-              <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600"
-                size={20}
-              />
-              <input
-                type="text"
-                placeholder="Search projects..."
-                value={searchQuery}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSearchQuery(e.target.value)
-                }
-                className="w-full pl-10 pr-4 py-2 border border-gray-400/90 rounded-lg"
-              />
+      <main className="bg-cream">
+        <section className="section">
+          <div className="container-lux">
+            <div className="mb-10 text-center">
+              <span className="eyebrow">Gallery</span>
+              <h1 className="heading mt-2 text-4xl font-semibold md:text-5xl">
+                Our Recent Projects
+              </h1>
             </div>
 
-            {/* Category Filter */}
-            <div className="flex items-center gap-2 w-full md:w-auto">
-              <Filter size={20} className="text-gray-600" />
-              <select
-                value={selectedCategory}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedCategory(e.target.value)
-                }
-                className="border rounded-lg px-4 py-2 w-full md:w-auto "
-              >
-                {categories.map((category: Category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
+            <div className="mb-10 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+              {/* Search Input */}
+              <div className="relative w-full md:w-96">
+                <Search
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-muted"
+                  size={20}
+                />
+                <input
+                  type="text"
+                  placeholder="Search projects..."
+                  value={searchQuery}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setSearchQuery(e.target.value)
+                  }
+                  className="w-full rounded-full border border-wood-500/25 bg-white/70 py-2.5 pl-10 pr-4 outline-none transition-all focus:border-brass focus:ring-2 focus:ring-brass/30"
+                />
+              </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product: Product) => (
-            <div
-              key={product._id}
-              className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              {product.image && (
-                <div className="aspect-video w-full   ">
-                  <img
-                    src={urlFor(product.image).url()}
-                    alt={product.title}
-                    className=" w-full h-[600px]  object-cover"
-                  />
-                </div>
-              )}
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
-                <p className="text-gray-600">{product.description}</p>
-                <span className="inline-block mt-2 text-sm text-gray-600 bg-gray-200 px-2 py-1 rounded">
-                  {product.category}
-                </span>
+              {/* Category Filter */}
+              <div className="flex w-full items-center gap-2 md:w-auto">
+                <Filter size={20} className="text-muted" />
+                <select
+                  value={selectedCategory}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    setSelectedCategory(e.target.value)
+                  }
+                  className="w-full rounded-full border border-wood-500/25 bg-white/70 px-4 py-2.5 outline-none transition-all focus:border-brass focus:ring-2 focus:ring-brass/30 md:w-auto"
+                >
+                  {categories.map((category: Category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredProducts.map((product: Product) => (
+                <article
+                  key={product._id}
+                  className="group card-lux overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lux"
+                >
+                  {product.image && (
+                    <div className="aspect-[4/3] w-full overflow-hidden">
+                      <img
+                        src={urlFor(product.image).url()}
+                        alt={product.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+                  <div className="p-5">
+                    <h3 className="font-display text-xl font-semibold text-ink">
+                      {product.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted">
+                      {product.description}
+                    </p>
+                    <span className="mt-3 inline-block rounded-full bg-wood-500/10 px-3 py-1 text-xs font-medium capitalize text-wood-700">
+                      {product.category}
+                    </span>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {filteredProducts.length === 0 && (
+              <p className="mt-10 text-center text-muted">
+                No projects found. Try a different search or category.
+              </p>
+            )}
+          </div>
+        </section>
       </main>
       <Footer />
     </>

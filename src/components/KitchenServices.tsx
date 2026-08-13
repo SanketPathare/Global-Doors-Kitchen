@@ -1,17 +1,7 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import {
-  Home,
-  ShoppingCart,
-  Star,
-  Settings,
-} from 'lucide-react';
-
-interface Feature {
-  title: string;
-  description: string;
-}
+import React, { useState } from "react";
+import { Home, ShoppingCart, Star, Settings } from "lucide-react";
 
 interface Service {
   title: string;
@@ -21,117 +11,113 @@ interface Service {
   images: string;
 }
 
-interface Services {
-  [key: string]: Service;
-}
-
 const KitchenServices: React.FC = () => {
-  const [activeService, setActiveService] = useState<string>('renovation');
+  const [activeService, setActiveService] = useState<string>("renovation");
 
-  const services: Services = {
+  const services: { [key: string]: Service } = {
     renovation: {
-      title: 'Kitchen Renovation',
-      description: 'Complete transformation of your kitchen space with modern design and functionality.',
-      icon: <Home className="w-8 h-8 md:w-12 md:h-12 text-amber-600" />,
+      title: "Kitchen Renovation",
+      description:
+        "Complete transformation of your kitchen space with modern design and functionality.",
+      icon: <Home className="h-7 w-7 md:h-9 md:w-9 text-brass-dark" />,
       features: [
-        'Custom Layout Design',
-        'Full Space Reconfiguration',
-        'Modern Appliance Integration',
-        'Comprehensive Styling',
+        "Custom Layout Design",
+        "Full Space Reconfiguration",
+        "Modern Appliance Integration",
+        "Comprehensive Styling",
       ],
-      images: 'images/KitchenRenovation.avif'
+      images: "images/KitchenRenovation.avif",
     },
     cabinetry: {
-      title: 'Custom Cabinetry',
-      description: 'Precision-crafted cabinets tailored to your exact specifications and style.',
-      icon: <ShoppingCart className="w-8 h-8 md:w-12 md:h-12 text-amber-600" />,
+      title: "Custom Cabinetry",
+      description:
+        "Precision-crafted cabinets tailored to your exact specifications and style.",
+      icon: <ShoppingCart className="h-7 w-7 md:h-9 md:w-9 text-brass-dark" />,
       features: [
-        'Personalized Design',
-        'Premium Materials',
-        'Maximized Storage Solutions',
-        'Custom Finishes'
+        "Personalized Design",
+        "Premium Materials",
+        "Maximized Storage Solutions",
+        "Custom Finishes",
       ],
-      images: 'images/CustomCabinetry.avif'
+      images: "images/CustomCabinetry.avif",
     },
     consultation: {
-      title: 'Design Consultation',
-      description: 'Expert guidance to transform your kitchen vision into a realistic plan.',
-      icon: <Star className="w-8 h-8 md:w-12 md:h-12 text-amber-600" />,
+      title: "Design Consultation",
+      description:
+        "Expert guidance to transform your kitchen vision into a realistic plan.",
+      icon: <Star className="h-7 w-7 md:h-9 md:w-9 text-brass-dark" />,
       features: [
-        '3D Visualization',
-        'Material Selection',
-        'Budget Planning',
-        'Professional Recommendations'
+        "3D Visualization",
+        "Material Selection",
+        "Budget Planning",
+        "Professional Recommendations",
       ],
-      images: 'images/DesignConsultation.jpeg'
-    }
+      images: "images/DesignConsultation.jpeg",
+    },
   };
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-8 md:py-16">
-      <div className="text-center mb-8 md:mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
-          Kitchen Services
-        </h2>
-        <p className="text-lg md:text-xl text-gray-600">
-          Transforming Spaces, Elevating Lifestyles
-        </p>
-      </div>
-
-      <div className="flex flex-col md:flex-row justify-center mb-8 space-y-2 md:space-y-0 md:space-x-4">
-        {Object.keys(services).map((serviceKey) => (
-          <button
-            key={serviceKey}
-            onClick={() => setActiveService(serviceKey)}
-            className={`px-4 md:px-6 py-2 md:py-3 rounded-lg transition-all ${
-              activeService === serviceKey
-                ? 'bg-amber-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            }`}
-          >
-            {services[serviceKey].title}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
-        <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg order-2 md:order-1">
-          <div className="flex items-center mb-4 md:mb-6">
-            {services[activeService].icon}
-            <h3 className="text-xl md:text-2xl font-bold ml-3 md:ml-4 text-gray-800">
-              {services[activeService].title}
-            </h3>
-          </div>
-          <p className="text-gray-600 mb-6">
-            {services[activeService].description}
+    <section className="section">
+      <div className="container-lux">
+        <div className="mb-10 text-center md:mb-14">
+          <span className="eyebrow">Our Expertise</span>
+          <h2 className="heading mt-2 text-3xl font-semibold md:text-5xl">
+            Kitchen Services
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted">
+            Transforming spaces, elevating lifestyles.
           </p>
-          <div className="space-y-3 md:space-y-4">
-            {services[activeService].features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-3"
-              >
-                <Settings className="w-5 h-5 md:w-6 md:h-6 text-amber-600" />
-                <span className="text-gray-700">{feature}</span>
-              </div>
-            ))}
-          </div>
-          <button 
-            className="mt-6 w-full bg-amber-600 text-white py-2 md:py-3 rounded-lg hover:bg-amber-600/90 transition-colors"
-            onClick={() => console.log('Quote requested for:', services[activeService].title)}
-          >
-            Get Quote
-          </button>
         </div>
-        <div className="order-1 md:order-2">
-          <img
-            src={services[activeService].images}
-            alt={`${services[activeService].title} Preview`}
-            className="w-full h-[300px] md:h-[400px] rounded-lg shadow-xl object-cover"
-          />
+
+        <div className="mb-10 flex flex-col items-center justify-center gap-3 md:flex-row md:space-x-3">
+          {Object.keys(services).map((serviceKey) => (
+            <button
+              key={serviceKey}
+              onClick={() => setActiveService(serviceKey)}
+              className={`w-full rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 md:w-auto ${
+                activeService === serviceKey
+                  ? "bg-wood-gradient text-white shadow-lux-sm"
+                  : "border border-wood-500/30 bg-white/60 text-wood-700 hover:border-brass"
+              }`}
+            >
+              {services[serviceKey].title}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid items-center gap-8 md:grid-cols-2">
+          <div className="card-lux order-2 p-7 md:order-1 md:p-9">
+            <div className="mb-5 flex items-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-wood-500/10">
+                {services[activeService].icon}
+              </div>
+              <h3 className="ml-4 font-display text-2xl font-semibold text-ink">
+                {services[activeService].title}
+              </h3>
+            </div>
+            <p className="mb-6 text-muted">
+              {services[activeService].description}
+            </p>
+            <div className="space-y-3">
+              {services[activeService].features.map((feature, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <Settings className="h-5 w-5 flex-shrink-0 text-brass-dark" />
+                  <span className="text-wood-700">{feature}</span>
+                </div>
+              ))}
+            </div>
+            <button className="btn-brass mt-8 w-full">Get Quote</button>
+          </div>
+          <div className="order-1 overflow-hidden rounded-3xl shadow-lux ring-1 ring-wood-500/10 md:order-2">
+            <img
+              src={services[activeService].images}
+              alt={`${services[activeService].title} Preview`}
+              className="h-[300px] w-full object-cover md:h-[440px]"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

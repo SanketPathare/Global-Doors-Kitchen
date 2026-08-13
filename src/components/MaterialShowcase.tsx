@@ -1,11 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import {
-  PaletteIcon,
-  ChevronLeft,
-  ChevronRight,
-  ShieldCheck,
-} from "lucide-react";
+import { PaletteIcon, ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
 
 const MaterialShowcase = () => {
   const [currentMaterial, setCurrentMaterial] = useState(0);
@@ -17,12 +12,7 @@ const MaterialShowcase = () => {
       category: "Countertops",
       description:
         "Durable, non-porous surface with exceptional resistance to stains and scratches.",
-      features: [
-        "Highly Durable",
-        "Low Maintenance",
-        "Wide Color Range",
-        "Hygienic Surface",
-      ],
+      features: ["Highly Durable", "Low Maintenance", "Wide Color Range", "Hygienic Surface"],
       image: "/images/QuartzCountertops.jpg",
     },
     {
@@ -30,12 +20,7 @@ const MaterialShowcase = () => {
       category: "Cabinetry",
       description:
         "Premium hardwood with custom finishes for timeless elegance and durability.",
-      features: [
-        "Custom Finishes",
-        "Long-Lasting",
-        "Rich Texture",
-        "Multiple Wood Types",
-      ],
+      features: ["Custom Finishes", "Long-Lasting", "Rich Texture", "Multiple Wood Types"],
       image: "/images/HardwoodCabinetry.jpg",
     },
     {
@@ -43,118 +28,115 @@ const MaterialShowcase = () => {
       category: "Doors",
       description:
         "Sleek, space-saving door solutions with advanced hardware and smooth operation.",
-      features: [
-        "Space Optimization",
-        "Contemporary Design",
-        "Multiple Configurations",
-        "High-Quality Tracks",
-      ],
+      features: ["Space Optimization", "Contemporary Design", "Multiple Configurations", "High-Quality Tracks"],
       image: "/images/ModernSliding.jpg",
     },
   ];
 
   useEffect(() => {
-    let intervalId:any;
-
+    let intervalId: any;
     if (isAutoPlaying) {
       intervalId = setInterval(() => {
         setCurrentMaterial((prev) => (prev + 1) % materials.length);
-      }, 3000);
+      }, 4000);
     }
-
     return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
+      if (intervalId) clearInterval(intervalId);
     };
   }, [isAutoPlaying, materials.length]);
 
   const nextMaterial = () => {
     setIsAutoPlaying(false);
     setCurrentMaterial((prev) => (prev + 1) % materials.length);
-    // Resume auto-playing after 5 seconds of user inactivity
-    setTimeout(() => setIsAutoPlaying(true), 5000);
+    setTimeout(() => setIsAutoPlaying(true), 6000);
   };
 
   const prevMaterial = () => {
     setIsAutoPlaying(false);
-    setCurrentMaterial((prev) =>
-      prev === 0 ? materials.length - 1 : prev - 1
-    );
-    // Resume auto-playing after 5 seconds of user inactivity
-    setTimeout(() => setIsAutoPlaying(true), 5000);
+    setCurrentMaterial((prev) => (prev === 0 ? materials.length - 1 : prev - 1));
+    setTimeout(() => setIsAutoPlaying(true), 6000);
   };
 
   const currentMat = materials[currentMaterial];
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-16">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">
-          Premium Materials
-        </h2>
-        <p className="text-xl text-gray-600">
-          Quality Craftsmanship in Every Detail
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        {/* Material Image */}
-        <div className="relative">
-          <img
-            src={currentMat.image}
-            alt={currentMat.name}
-            className="w-full h-96 rounded-lg shadow-lg object-cover"
-          />
-          <div className="absolute inset-y-0 left-0 flex items-center">
-            <button
-              onClick={prevMaterial}
-              className="bg-white/50 hover:bg-white/70 p-2 rounded-full transition-colors"
-              aria-label="Previous material"
-            >
-              <ChevronLeft className="w-8 h-8 text-gray-800" />
-            </button>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center">
-            <button
-              onClick={nextMaterial}
-              className="bg-white/50 hover:bg-white/70 p-2 rounded-full transition-colors"
-              aria-label="Next material"
-            >
-              <ChevronRight className="w-8 h-8 text-gray-800" />
-            </button>
-          </div>
+    <section className="section bg-sand/50">
+      <div className="container-lux">
+        <div className="mb-12 text-center">
+          <span className="eyebrow">Crafted From</span>
+          <h2 className="heading mt-2 text-3xl font-semibold md:text-5xl">
+            Premium Materials
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted">
+            Quality craftsmanship in every detail.
+          </p>
         </div>
 
-        {/* Material Details */}
-        <div>
-          <div className="flex items-center mb-4">
-            <PaletteIcon className="w-10 h-10 text-amber-500 mr-4" />
-            <div>
-              <h3 className="text-3xl font-bold text-gray-800">
-                {currentMat.name}
-              </h3>
-              <p className="text-gray-600">{currentMat.category}</p>
+        <div className="grid items-center gap-8 md:grid-cols-2">
+          <div className="relative overflow-hidden rounded-3xl shadow-lux ring-1 ring-wood-500/10">
+            <img
+              src={currentMat.image}
+              alt={currentMat.name}
+              className="h-80 w-full object-cover md:h-[460px]"
+            />
+            <button
+              onClick={prevMaterial}
+              className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-wood-700 shadow-lux-sm backdrop-blur transition-colors hover:bg-brass hover:text-white"
+              aria-label="Previous material"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={nextMaterial}
+              className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-wood-700 shadow-lux-sm backdrop-blur transition-colors hover:bg-brass hover:text-white"
+              aria-label="Next material"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 space-x-2">
+              {materials.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === currentMaterial ? "w-6 bg-brass" : "w-1.5 bg-cream/70"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 
-          <p className="text-lg text-gray-700 mb-6">{currentMat.description}</p>
-
-          <div className="space-y-4">
-            {currentMat.features.map((feature, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <ShieldCheck className="w-6 h-6 text-amber-600" />
-                <span className="text-gray-700">{feature}</span>
+          <div>
+            <div className="mb-5 flex items-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-wood-500/10">
+                <PaletteIcon className="h-7 w-7 text-brass-dark" />
               </div>
-            ))}
-          </div>
+              <div className="ml-4">
+                <h3 className="font-display text-3xl font-semibold text-ink">
+                  {currentMat.name}
+                </h3>
+                <p className="text-sm uppercase tracking-widest text-brass-dark">
+                  {currentMat.category}
+                </p>
+              </div>
+            </div>
 
-          {/* <button className="mt-8 bg-amber-600 text-white px-6 py-3 rounded-lg hover:bg-amber-600/90 transition-colors">
-            Explore Material
-          </button> */}
+            <p className="mb-6 text-lg text-muted">{currentMat.description}</p>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {currentMat.features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-3 rounded-xl bg-white/60 px-4 py-3"
+                >
+                  <ShieldCheck className="h-5 w-5 flex-shrink-0 text-brass-dark" />
+                  <span className="text-wood-700">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

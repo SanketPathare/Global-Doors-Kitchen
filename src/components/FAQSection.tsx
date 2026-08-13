@@ -8,10 +8,7 @@ const FAQSection = () => {
     {
       category: "General Questions",
       questions: [
-        {
-          question: "What areas do you service?",
-          answer: "We service the entire Pune.",
-        },
+        { question: "What areas do you service?", answer: "We service the entire Pune." },
         {
           question: "Do you offer free consultations?",
           answer:
@@ -86,92 +83,82 @@ const FAQSection = () => {
     },
   ];
 
-  // State to track which questions are expanded
   const [expandedCategories, setExpandedCategories] = useState({});
   const [expandedQuestions, setExpandedQuestions] = useState({});
 
-  // Toggle category expansion
-  const toggleCategory = (category) => {
-    setExpandedCategories((prev) => ({
-      ...prev,
-      [category]: !prev[category],
-    }));
-  };
+  const toggleCategory = (category) =>
+    setExpandedCategories((prev) => ({ ...prev, [category]: !prev[category] }));
 
-  // Toggle question expansion
   const toggleQuestion = (categoryIndex, questionIndex) => {
     const key = `${categoryIndex}-${questionIndex}`;
-    setExpandedQuestions((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+    setExpandedQuestions((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-lg text-gray-600">
-          Find answers to common questions about our services
-        </p>
-      </div>
+    <section className="section">
+      <div className="container-lux">
+        <div className="mb-14 text-center">
+          <span className="eyebrow">Support</span>
+          <h2 className="heading mt-2 text-3xl font-semibold md:text-5xl">
+            Frequently Asked Questions
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted">
+            Find answers to common questions about our services.
+          </p>
+        </div>
 
-      <div className="space-y-6">
-        {faqs.map((category, categoryIndex) => (
-          <div
-            key={categoryIndex}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
-          >
-            {/* Category Header */}
-            <button
-              onClick={() => toggleCategory(category.category)}
-              className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 transition-colors duration-300"
-            >
-              <h3 className="text-lg font-semibold text-gray-900">
-                {category.category}
-              </h3>
-              {expandedCategories[category.category] ? (
-                <ChevronUp className="w-6 h-6 text-gray-600" />
-              ) : (
-                <ChevronDown className="w-6 h-6 text-gray-600" />
-              )}
-            </button>
-
-            {/* Questions in Category */}
+        <div className="mx-auto max-w-4xl space-y-5">
+          {faqs.map((category, categoryIndex) => (
             <div
-              className={`${expandedCategories[category.category] ? "block" : "hidden"}`}
+              key={categoryIndex}
+              className="overflow-hidden rounded-2xl bg-white/70 shadow-lux-sm ring-1 ring-wood-500/10 backdrop-blur-sm"
             >
-              {category.questions.map((item, questionIndex) => (
-                <div key={questionIndex} className="border-t border-gray-200">
-                  <button
-                    onClick={() => toggleQuestion(categoryIndex, questionIndex)}
-                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-300"
-                  >
-                    <h4 className="text-left text-md font-medium text-gray-900">
-                      {item.question}
-                    </h4>
-                    {expandedQuestions[`${categoryIndex}-${questionIndex}`] ? (
-                      <ChevronUp className="flex-shrink-0 ml-4 w-5 h-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="flex-shrink-0 ml-4 w-5 h-5 text-gray-500" />
-                    )}
-                  </button>
+              <button
+                onClick={() => toggleCategory(category.category)}
+                className="flex w-full items-center justify-between bg-wood-500/5 px-6 py-5 text-left transition-colors hover:bg-wood-500/10"
+              >
+                <h3 className="font-display text-lg font-semibold text-ink">
+                  {category.category}
+                </h3>
+                {expandedCategories[category.category] ? (
+                  <ChevronUp className="h-6 w-6 text-brass-dark" />
+                ) : (
+                  <ChevronDown className="h-6 w-6 text-brass-dark" />
+                )}
+              </button>
 
-                  {/* Answer */}
-                  <div
-                    className={`px-6 pb-4 ${expandedQuestions[`${categoryIndex}-${questionIndex}`] ? "block" : "hidden"}`}
-                  >
-                    <p className="text-gray-600">{item.answer}</p>
+              <div className={expandedCategories[category.category] ? "block" : "hidden"}>
+                {category.questions.map((item, questionIndex) => (
+                  <div key={questionIndex} className="border-t border-wood-500/10">
+                    <button
+                      onClick={() => toggleQuestion(categoryIndex, questionIndex)}
+                      className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-cream/60"
+                    >
+                      <h4 className="text-left text-base font-medium text-wood-800">
+                        {item.question}
+                      </h4>
+                      {expandedQuestions[`${categoryIndex}-${questionIndex}`] ? (
+                        <ChevronUp className="ml-4 h-5 w-5 flex-shrink-0 text-brass-dark" />
+                      ) : (
+                        <ChevronDown className="ml-4 h-5 w-5 flex-shrink-0 text-brass-dark" />
+                      )}
+                    </button>
+
+                    <div
+                      className={`px-6 pb-4 ${
+                        expandedQuestions[`${categoryIndex}-${questionIndex}`] ? "block" : "hidden"
+                      }`}
+                    >
+                      <p className="text-muted">{item.answer}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

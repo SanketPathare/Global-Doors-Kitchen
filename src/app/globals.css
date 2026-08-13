@@ -3,19 +3,65 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbf7f0;
+  --foreground: #2a1c12;
+  --wood-500: #8a5a36;
+  --wood-800: #4a2e1c;
+  --brass: #c2a24c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: "Outfit", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--brass);
+    color: #fff;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container-lux {
+    @apply mx-auto w-full max-w-8xl px-4 sm:px-6 lg:px-14;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs font-semibold uppercase tracking-[0.2em] text-brass-dark;
+  }
+
+  .heading {
+    @apply font-display text-ink;
+  }
+
+  .btn-brass {
+    @apply inline-flex items-center justify-center rounded-full bg-brass-gradient px-6 py-3 text-sm font-medium text-white shadow-lux-sm transition-all duration-300 hover:shadow-lux hover:brightness-105;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full border border-wood-600/40 px-6 py-3 text-sm font-medium text-wood-700 transition-all duration-300 hover:border-brass hover:text-brass-dark;
+  }
+
+  .card-lux {
+    @apply rounded-2xl border border-wood-500/10 bg-white/70 shadow-lux-sm backdrop-blur-sm;
+  }
 }

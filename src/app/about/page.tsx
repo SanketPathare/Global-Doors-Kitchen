@@ -4,171 +4,135 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const AboutPage = () => {
+  const stats = [
+    { value: "14+", label: "Years of Experience" },
+    { value: "10K+", label: "Projects Completed" },
+    { value: "50+", label: "Expert Team Members" },
+    { value: "98%", label: "Customer Satisfaction" },
+  ];
+
+  const values = [
+    { icon: Award, title: "Quality", text: "Premium materials and superior craftsmanship in every project." },
+    { icon: Users, title: "Customer Focus", text: "Dedicated to exceeding customer expectations." },
+    { icon: Clock, title: "Reliability", text: "On-time delivery and consistent quality assurance." },
+    { icon: Wrench, title: "Innovation", text: "Embracing new technologies and design trends." },
+  ];
+
+  const whyChoose = [
+    "Premium Quality Materials",
+    "Expert Craftsmanship",
+    "Custom Design Solutions",
+    "Professional Installation",
+    "Excellent Customer Service",
+    "Competitive Pricing",
+  ];
+
   return (
     <>
       <Navbar />
-      <div className="min-h-screen container mx-auto max-w-7xl">
+      <main className="bg-cream">
         {/* Hero Section */}
-        <section className="relative text-black py-12 md:py-20">
-          <div className="container mx-auto  px-4 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
-              About Global Doors & Kitchen
+        <section className="section bg-wood-gradient text-cream">
+          <div className="container-lux text-center">
+            <span className="eyebrow !text-brass-light">Our Story</span>
+            <h1 className="heading mt-2 text-4xl font-semibold text-white sm:text-5xl md:text-6xl">
+              About Global Doors &amp; Kitchen
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl text-gray-600 mx-auto px-4">
-              Crafting excellence in doors and kitchens since 2012. We bring
-              your vision to life with premium materials and expert
-              craftsmanship.
+            <p className="mx-auto mt-5 max-w-2xl text-cream/85">
+              Crafting excellence in doors and kitchens since 2012. We bring your
+              vision to life with premium materials and expert craftsmanship.
             </p>
           </div>
         </section>
 
         {/* Our Story Section */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <section className="section">
+          <div className="container-lux">
+            <div className="grid items-center gap-12 md:grid-cols-2">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                <span className="eyebrow">Who We Are</span>
+                <h2 className="heading mt-2 text-3xl font-semibold md:text-4xl">
                   Our Story
                 </h2>
-                <p className="text-gray-600 mb-4 text-sm md:text-base">
-                  Founded in 2012, Global Doors & Kitchen began with a simple
+                <p className="mt-4 text-muted">
+                  Founded in 2012, Global Doors &amp; Kitchen began with a simple
                   mission: to provide exceptional quality doors and kitchen
                   solutions that transform houses into homes.
                 </p>
-                <p className="text-gray-600 mb-4 text-sm md:text-base">
-                  Over the past decades, we've grown from a small local workshop
-                  to a leading provider of premium doors and kitchen solutions,
-                  serving thousands of satisfied customers across the region.
+                <p className="mt-4 text-muted">
+                  Over the past decades, we&apos;ve grown from a small local
+                  workshop to a leading provider of premium doors and kitchen
+                  solutions, serving thousands of satisfied customers across the
+                  region.
                 </p>
-                <p className="text-gray-600 text-sm md:text-base">
+                <p className="mt-4 text-muted">
                   Our commitment to quality, innovation, and customer
                   satisfaction has earned us a reputation as one of the most
                   trusted names in the industry.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
-                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
-                    14+
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Years of Experience
-                  </p>
-                </div>
-                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
-                    10K+
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Projects Completed
-                  </p>
-                </div>
-                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
-                    50+
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Expert Team Members
-                  </p>
-                </div>
-                <div className="bg-amber-100 p-4 md:p-6 rounded-lg">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">
-                    98%
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Customer Satisfaction
-                  </p>
-                </div>
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-2xl bg-parchment/60 p-6 text-center shadow-lux-sm"
+                  >
+                    <h3 className="font-display text-3xl font-bold text-wood-700">
+                      {stat.value}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
         {/* Values Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+        <section className="section bg-sand/50">
+          <div className="container-lux">
+            <h2 className="heading mb-12 text-center text-3xl font-semibold md:text-4xl">
               Our Core Values
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              <div className="text-center">
-                <div className="bg-amber-50 border border-amber-600/50  p-4 md:p-6 rounded-lg shadow-sm mb-4">
-                  <Award className="w-10 h-10 md:w-12 md:h-12 mx-auto text-amber-600 mb-3 md:mb-4" />
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">
-                    Quality
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Premium materials and superior craftsmanship in every
-                    project
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-amber-50 border border-amber-600/50 p-4 md:p-6 rounded-lg shadow-sm mb-4">
-                  <Users className="w-10 h-10 md:w-12 md:h-12 mx-auto text-amber-600 mb-3 md:mb-4" />
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">
-                    Customer Focus
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Dedicated to exceeding customer expectations
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-amber-50 border border-amber-600/50 p-4 md:p-6 rounded-lg shadow-sm mb-4">
-                  <Clock className="w-10 h-10 md:w-12 md:h-12 mx-auto text-amber-600 mb-3 md:mb-4" />
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">
-                    Reliability
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    On-time delivery and consistent quality assurance
-                  </p>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="bg-amber-50 border border-amber-600/50 p-4 md:p-6 rounded-lg shadow-sm mb-4">
-                  <Wrench className="w-10 h-10 md:w-12 md:h-12 mx-auto text-amber-600 mb-3 md:mb-4" />
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">
-                    Innovation
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base">
-                    Embracing new technologies and design trends
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
-              Why Choose Us
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-              {[
-                "Premium Quality Materials",
-                "Expert Craftsmanship",
-                "Custom Design Solutions",
-                "Professional Installation",
-                "Excellent Customer Service",
-                "Competitive Pricing",
-              ].map((item, index) => (
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {values.map((value) => (
                 <div
-                  key={index}
-                  className="flex items-center space-x-3 bg-amber-50 p-3 md:p-4 rounded-lg shadow-sm"
+                  key={value.title}
+                  className="card-lux p-6 text-center transition-transform duration-300 hover:-translate-y-1"
                 >
-                  <CheckCircle className="text-amber-600 w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm md:text-base">
-                    {item}
-                  </span>
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-wood-500/10">
+                    <value.icon className="h-7 w-7 text-brass-dark" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold text-ink">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted">{value.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
-      </div>
+
+        {/* Why Choose Us Section */}
+        <section className="section">
+          <div className="container-lux">
+            <h2 className="heading mb-12 text-center text-3xl font-semibold md:text-4xl">
+              Why Choose Us
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {whyChoose.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center space-x-3 rounded-2xl bg-white/70 p-4 shadow-lux-sm ring-1 ring-wood-500/10"
+                >
+                  <CheckCircle className="h-6 w-6 flex-shrink-0 text-brass-dark" />
+                  <span className="text-wood-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </>
   );

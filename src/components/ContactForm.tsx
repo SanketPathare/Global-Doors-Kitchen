@@ -32,154 +32,151 @@ const ContactForm: React.FC = () => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // Implement form submission logic
       console.log("Form submitted:", formData);
-      // Reset form after submission
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
+  const inputClass =
+    "w-full border border-wood-500/25 bg-white/70 pl-10 pr-4 py-3 rounded-xl text-wood-800 placeholder:text-muted/70 outline-none transition-all focus:border-brass focus:ring-2 focus:ring-brass/30";
+
   return (
-    <div className="container mx-auto px-4 py-8 md:py-16">
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-        {/* Contact Information */}
-        <div className="bg-amber-50 p-6 md:p-8 rounded-lg order-2 md:order-1">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-800">
-            Contact Information
-          </h2>
-          <div className="space-y-4 md:space-y-6">
-            <div className="flex items-start space-x-4">
-              <MapPin className="text-amber-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-base md:text-lg">Address</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  ijau Office, Thehur Phat, Kunjirwadi, Pune, Maharashtra 411028
-                </p>
+    <section className="section">
+      <div className="container-lux">
+        <div className="grid items-start gap-10 md:grid-cols-2 md:gap-14">
+          {/* Contact Information */}
+          <div className="rounded-3xl bg-wood-gradient p-8 text-cream shadow-lux md:p-10">
+            <span className="eyebrow !text-brass-light">Get In Touch</span>
+            <h2 className="heading mt-2 text-3xl font-semibold text-white">
+              Contact Information
+            </h2>
+            <p className="mt-3 text-cream/80">
+              Have a project in mind? Reach out and our team will get back to you
+              within one business day.
+            </p>
+            <div className="mt-8 space-y-5">
+              <div className="flex items-start space-x-4">
+                <MapPin className="mt-1 h-6 w-6 flex-shrink-0 text-brass-light" />
+                <div>
+                  <h3 className="font-semibold">Address</h3>
+                  <p className="text-sm text-cream/80">
+                    ijau Office, Thehur Phat, Kunjirwadi, Pune, Maharashtra 411028
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Phone className="text-amber-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
-              <div>
-                <h3 className="font-semibold text-base md:text-lg">Phone</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  91+ 77972 12121
-                </p>
+              <div className="flex items-center space-x-4">
+                <Phone className="h-6 w-6 flex-shrink-0 text-brass-light" />
+                <div>
+                  <h3 className="font-semibold">Phone</h3>
+                  <p className="text-sm text-cream/80">91+ 77972 12121</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Mail className="text-amber-600 w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
-              <div>
-                <h3 className="font-semibold text-base md:text-lg">Email</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  contact@globaldoorskitchen.com
-                </p>
+              <div className="flex items-center space-x-4">
+                <Mail className="h-6 w-6 flex-shrink-0 text-brass-light" />
+                <div>
+                  <h3 className="font-semibold">Email</h3>
+                  <p className="text-sm text-cream/80">
+                    contact@globaldoorskitchen.com
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Contact Form */}
-        <div className="order-1 md:order-2">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-gray-800">
-            Request a Consultation
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-            <div className="relative">
-              <User className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-                className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-sm md:text-base"
-              />
-            </div>
+          {/* Contact Form */}
+          <div className="card-lux p-7 md:p-9">
+            <h2 className="heading mb-6 text-2xl font-semibold md:text-3xl">
+              Request a Consultation
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="relative">
+                <User className="absolute left-3 top-3.5 h-5 w-5 text-muted" />
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  required
+                  className={inputClass}
+                />
+              </div>
 
-            <div className="relative">
-              <Mail className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email Address"
-                required
-                className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-sm md:text-base"
-              />
-            </div>
+              <div className="relative">
+                <Mail className="absolute left-3 top-3.5 h-5 w-5 text-muted" />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email Address"
+                  required
+                  className={inputClass}
+                />
+              </div>
 
-            <div className="relative">
-              <Phone className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Phone Number"
-                className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-sm md:text-base"
-              />
-            </div>
+              <div className="relative">
+                <Phone className="absolute left-3 top-3.5 h-5 w-5 text-muted" />
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                  className={inputClass}
+                />
+              </div>
 
-            <div className="relative">
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 md:py-3 border rounded-lg text-sm md:text-base"
+              <div className="relative">
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className={`${inputClass} appearance-none`}
+                >
+                  <option value="">Select Service</option>
+                  {services.map((service, index) => (
+                    <option key={index} value={service}>
+                      {service}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="relative">
+                <MessageSquare className="absolute left-3 top-3.5 h-5 w-5 text-muted" />
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message"
+                  required
+                  rows={4}
+                  className={`${inputClass} pl-10`}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn-brass w-full py-3.5"
               >
-                <option value="">Select Service</option>
-                {services.map((service, index) => (
-                  <option key={index} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="relative">
-              <MessageSquare className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                required
-                rows={4}
-                className="w-full pl-10 pr-4 py-2 md:py-3 border rounded-lg text-sm md:text-base"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-amber-600 text-white py-2 md:py-3 rounded-lg hover:bg-amber-600/90 transition-colors flex items-center justify-center space-x-2 text-sm md:text-base"
-            >
-              <Send className="w-4 h-4 md:w-5 md:h-5" />
-              <span>Send Message</span>
-            </button>
-          </form>
+                <Send className="mr-2 h-5 w-5" />
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

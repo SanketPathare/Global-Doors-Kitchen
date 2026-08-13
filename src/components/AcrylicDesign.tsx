@@ -14,22 +14,13 @@ const GlobalDoorsKitchen = () => {
         "Modern hardware solutions",
       ],
       images: [
-        {
-          src: "/images/AcrylicKitchenCabinet.png",
-          alt: "Modern acrylic kitchen design",
-          caption: "Premium Acrylic Kitchen Cabinet",
-        },
-        {
-          src: "/images/High-glossDetail.jpg",
-          alt: "Kitchen cabinet detail",
-          caption: "High-gloss Finish Detail",
-        },
+        { src: "/images/AcrylicKitchenCabinet.png", alt: "Modern acrylic kitchen design", caption: "Premium Acrylic Kitchen Cabinet" },
+        { src: "/images/High-glossDetail.jpg", alt: "Kitchen cabinet detail", caption: "High-gloss Finish Detail" },
       ],
     },
     {
-      title: " Acrylic Designer Doors",
-      description:
-        "Enhance your space with our elegant door collection, offering:",
+      title: "Acrylic Designer Doors",
+      description: "Enhance your space with our elegant door collection, offering:",
       features: [
         "Acrylic finish doors",
         "Custom size options",
@@ -38,22 +29,13 @@ const GlobalDoorsKitchen = () => {
         "Weather-resistant coating",
       ],
       images: [
-        {
-          src: "/images/AcrylicDoor.jpg",
-          alt: "Modern door design",
-          caption: "Designer Acrylic Door",
-        },
-        {
-          src: "/images/HardwareDetail.webp",
-          alt: "Door detail",
-          caption: "Premium Hardware Detail",
-        },
+        { src: "/images/AcrylicDoor.jpg", alt: "Modern door design", caption: "Designer Acrylic Door" },
+        { src: "/images/HardwareDetail.webp", alt: "Door detail", caption: "Premium Hardware Detail" },
       ],
     },
     {
-      title: " Acrylic Temple Designs",
-      description:
-        "Create a sacred space with our specialized temple designs featuring:",
+      title: "Acrylic Temple Designs",
+      description: "Create a sacred space with our specialized temple designs featuring:",
       features: [
         "Traditional & modern designs",
         "Acrylic backlit panels",
@@ -62,60 +44,50 @@ const GlobalDoorsKitchen = () => {
         "Detailed carving effects",
       ],
       images: [
-        {
-          src: "/images/ContemporaryDesign.jpeg",
-          alt: "Modern temple design",
-          caption: "Contemporary Temple Design",
-        },
-        {
-          src: "images/BacklitPanel.webp",
-          alt: "Temple detail",
-          caption: "Backlit Panel Detail",
-        },
+        { src: "/images/ContemporaryDesign.jpeg", alt: "Modern temple design", caption: "Contemporary Temple Design" },
+        { src: "images/BacklitPanel.webp", alt: "Temple detail", caption: "Backlit Panel Detail" },
       ],
     },
   ];
 
   return (
-    <div className="min-h-screen  mt-10">
-      {/* Services Sections */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 space-y-24 mb-24">
+    <section className="section bg-cream">
+      <div className="container-lux space-y-20">
         {services.map((service, index) => (
           <div key={index} className="space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <span className="eyebrow">Finishes</span>
+              <h2 className="heading mt-2 text-3xl font-semibold md:text-4xl">
                 {service.title}
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="mx-auto mt-3 max-w-3xl text-muted">
                 {service.description}
               </p>
             </div>
 
-            {/* Image Gallery */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {service.images.map((image, idx) => (
-                <div key={idx} className="space-y-2">
-                  <div className="relative aspect-square overflow-hidden rounded-lg p-2 border-2 border-gray-100">
+                <figure key={idx} className="group space-y-3">
+                  <div className="overflow-hidden rounded-3xl bg-parchment p-3 shadow-lux-sm ring-1 ring-wood-500/10">
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-cover"
+                      className="aspect-[4/3] w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <p className="text-sm text-center text-gray-600">
+                  <figcaption className="text-center text-sm text-muted">
                     {image.caption}
-                  </p>
-                </div>
+                  </figcaption>
+                </figure>
               ))}
             </div>
 
-            {/* Features */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="card-lux p-6 md:p-8">
+              <ul className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                    <span className="text-gray-700">{feature}</span>
+                  <li key={idx} className="flex items-center space-x-3">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-brass" />
+                    <span className="text-wood-700">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -123,7 +95,7 @@ const GlobalDoorsKitchen = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Search, Filter, Image as ImageIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const ProjectsGallery = () => {
   const projects = [
@@ -35,40 +35,56 @@ const ProjectsGallery = () => {
   ];
 
   const categories = [
-    { id: "all", name: "All  Products" },
+    { id: "all", name: "All Products" },
     { id: "kitchen", name: "Kitchen" },
     { id: "doors", name: "Doors" },
   ];
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800">
-          Our Recent Projects
-        </h2>
-      </div>
+    <section className="section">
+      <div className="container-lux">
+        <div className="mb-10 text-center md:mb-14">
+          <span className="eyebrow">Portfolio</span>
+          <h2 className="heading mt-2 text-3xl font-semibold md:text-5xl">
+            Our Recent Projects
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted">
+            A glimpse into the bespoke doors and kitchens we have crafted for
+            homes and businesses.
+          </p>
+        </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow"
-          >
-            <div className="relative">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[350px] object-cover"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-600">{project.description}</p>
-            </div>
-          </div>
-        ))}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.map((project) => (
+            <article
+              key={project.id}
+              className="group card-lux overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lux"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-[280px] w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-[340px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-wood-900/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="absolute right-3 top-3 rounded-full bg-brass px-3 py-1 text-xs font-medium capitalize text-white shadow-lux-sm">
+                  {project.category}
+                </span>
+              </div>
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-display text-lg font-semibold text-ink">
+                    {project.title}
+                  </h3>
+                  <ArrowUpRight className="mt-1 h-5 w-5 flex-shrink-0 text-brass-dark" />
+                </div>
+                <p className="mt-1 text-sm text-muted">{project.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
